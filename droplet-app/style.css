@@ -1,0 +1,137 @@
+body { margin: 0; padding: 0; font-family: sans-serif; overflow: hidden; }
+
+/* 4:3 */
+#container {
+    width: 300px;
+    height: 400px;
+    position: relative;
+    transition: background 1s ease-in-out;
+    background-size: cover;    
+    background-position: center;
+}
+
+
+.custom-checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.custom-label {
+  display: inline-block;
+  width: 20px; 
+  height: 20px;
+  cursor: pointer;
+  background-image: url('uncheckbox.png'); 
+  background-size: cover; 
+  background-repeat: no-repeat;
+}
+
+/* change background image when the input is checked */
+.custom-checkbox:checked + .custom-label {
+  background-image: url('checkbox.png'); 
+}
+
+/* backgorund 1 */
+.alive { 
+    background-image: url('background1.png'); 
+}
+
+/* background 2 */
+.dead { 
+    background-image: url('background2.png'); 
+}
+
+@keyframes dropletFlip {
+  0% {
+    background-image: url('droplet0.png');
+  }
+  50% {
+    background-image: url('droplet0v2.png');
+  }
+  100% {
+    background-image: url('droplet0.png');
+  }
+}
+
+@keyframes dropletFlip2 {
+  0% {
+    background-image: url('droplet10.png');
+  }
+  50% {
+    background-image: url('droplet10v2.png');
+  }
+  100% {
+    background-image: url('droplet10.png');
+  }
+}
+
+@keyframes dropletFlip3 {
+  0% {
+    background-image: url('droplet20.png');
+  }
+  50% {
+    background-image: url('droplet20v2.png');
+  }
+  100% {
+    background-image: url('droplet20.png');
+  }
+}
+
+
+
+#character {
+    width: 200px;  
+    height: 200px;
+    position: absolute;
+    left: 60px;
+    top: 192px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 5;
+   
+}
+
+#character.state-0  { animation: dropletFlip 1s steps(2) infinite; }
+#character.state-10 { animation: dropletFlip2 1s steps(2) infinite; }
+#character.state-20 { animation: dropletFlip3 1s steps(2) infinite; }
+#character.state-30 { animation: stop; background-image: url('droplet30.png') !important; }
+#character.state-40 { background-image: url('droplet40.png') !important; }
+#character.state-50 { background-image: url('droplet50.png') !important; }
+@import url('https://fonts.googleapis.com');
+
+
+.stats {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    font-weight: bold;
+    font-family: 'Pixelify Sans';font-size: 10px;
+    color: white;
+}
+
+.settings { 
+    position: absolute; 
+    top: 30px; 
+    left: 20px; 
+    color: black; 
+}
+
+.toggle-row { 
+    display: flex; 
+    align-items: center; 
+    font-family: 'Pixelify Sans';font-size: 22px;
+    gap: 10px; 
+}
+
+.custom-checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+.bottom-right { position: absolute; right: 100px; bottom: 10px; }
+.top-left { position: absolute; top: 26px; }
+
